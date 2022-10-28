@@ -1,6 +1,6 @@
-"use strict"
-const width = 1000
-const height = 1000
+"use strict";
+const width = 900;
+const height = 900;
 const canvas = document.createElement("canvas");
 canvas.width = width;
 canvas.height = height;
@@ -29,11 +29,35 @@ function isPrime(value) {
   return true;
 }
 
+function drawCircle(
+  canvasContext,
+  x,
+  y,
+  radius,
+  fillColor = "#FFF",
+  strokeColor = "#FFF"
+) {
+  canvasContext.beginPath();
+  canvasContext.arc(x, y, radius, 0, Math.PI * 2);
+  canvasContext.fillStyle = fillColor;
+  canvasContext.strokeStyle = strokeColor;
+  canvasContext.fill();
+  canvasContext.stroke();
+}
+
+function drawLine(canvasContext, fromX, fromY, toX, toY, strokeColor="#FFF"){
+    canvasContext.beginPath();
+    canvasContext.moveTo(fromX, fromY);
+    canvasContext.lineTo(toX, toY);
+    canvasContext.strokeStyle = strokeColor;
+    canvasContext.stroke();
+}
+
 function setup() {
   x = width / 2;
   y = height / 2;
-  canvasContext.fillStyle = "#000";
   canvasContext.fillRect(0, 0, width, height);
+  canvasContext.fillStyle = "#000";
   canvasContext.fill();
 
   // set up spiral
@@ -45,23 +69,13 @@ function setup() {
 
 function draw() {
   while (step <= totalSteps) {
-    // console.log(step <= totalSteps)
     // If prime draw circle
     if (isPrime(step)) {
-      canvasContext.beginPath();
-      canvasContext.arc(x, y, stepSize * 0.5, 0, Math.PI * 2);
-      canvasContext.fillStyle = "#FFF";
-      canvasContext.strokeStyle = "#FFF";
-      canvasContext.fill();
-      canvasContext.stroke();
+      drawCircle(canvasContext, x, y, stepSize * 0.5);
     }
 
-    //line
-    canvasContext.beginPath();
-    canvasContext.moveTo(x, y);
-    canvasContext.lineTo(px, py);
-    canvasContext.strokeStyle = "#FFF";
-    canvasContext.stroke();
+    // Draws line between circles of prime numbers
+    drawLine(canvasContext, x, y, px, py)
     px = x;
     py = y;
 
@@ -100,7 +114,7 @@ function draw() {
 function render() {
   let isSetupFinished = setup();
   if (isSetupFinished) draw();
-  console.log('rendering is finished')
+  console.log("rendering is finished");
 }
 
 render();

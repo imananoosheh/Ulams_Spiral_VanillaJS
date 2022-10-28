@@ -21,6 +21,6 @@
 
 | **Methods** | **Descriptions** |
 | ----------- | ----------- |
-| function **drawCircle**(`canvasContext`: *CanvasRenderingContext2D*, `x`: *number*, `y`: *number*, `radius`: *number*, `fillColor`?: *string*, `strokeColor`?: *string*): void | Draws a circle at the `x` and `y` coordinates with the passed `radius`. `fillColor` and `strokeColor` is by default *#FFF* *white* |
-| function **drawLine**(`canvasContext`: *CanvasRenderingContext2D*, `fromX`: *number*, `fromY`: *number*, `toX`: *number*, `toY`: *number*, `strokeColor`?: *string*): void | Draws a line from `fromX` and `fromY` coordinates to `toX` and `toY` coordinates. Passing `strokeColor` is optional and by default is *#FFF* *white* | 
+| ```function drawCircle(canvasContext: CanvasRenderingContext2D, x: number, y: number, radius: number, fillColor?: string, strokeColor?: string): void``` | Draws a circle at the `x` and `y` coordinates with the passed `radius`. `fillColor` and `strokeColor` is by default *#FFF* *white* |
+| ```function drawLine(canvasContext: CanvasRenderingContext2D, fromX: number, fromY: number, toX: number, toY: number, strokeColor?: string): void``` | Draws a line from `fromX` and `fromY` coordinates to `toX` and `toY` coordinates. Passing `strokeColor` is optional and by default is *#FFF* *white* | 
 

@@ -71,11 +71,11 @@ function draw() {
   while (step <= totalSteps) {
     // If prime draw circle
     if (isPrime(step)) {
-      drawCircle(canvasContext, x, y, stepSize * 0.5);
+      drawCircle(canvasContext, x, y, stepSize * 0.5, '#0f0', '#0f0');
     }
 
     // Draws line between circles of prime numbers
-    drawLine(canvasContext, x, y, px, py)
+    drawLine(canvasContext, x, y, px, py, '#0f0')
     px = x;
     py = y;
 
